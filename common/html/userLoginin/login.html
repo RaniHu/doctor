@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>健康纪元</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/userLoginin/style.css">
+     <script src="/static/js/userLoginin/jquery-1.9.1.js"></script>
+    <script src="/static/js/userLoginin/event.js"></script>
+
+    <style type="text/css">
+        .register-box {height: 335px;}
+        .register-box .input-filed{height: 150px; margin-top: 10px;}
+    </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <!-- 主要内容-->
+    <div class="main">
+        <form id="registerForm"  action="/startlogin/"  method="post">
+            <div class="register-box">
+                <h1>用户登陆</h1>
+                <ul class="input-filed">
+                    <li class="email">
+                        <label>邮箱</label>
+                        <input type="text" name="emailtel">
+                    </li>
+                    <li class="password">
+                        <label>密码</label>
+                        <input type="password" name="pwd">
+                    </li>
+
+{% if errors %}
+             <p style="color: red;">
+             {{errors}}
+             </p>
+{% endif %}
+                </ul>
+                <div class="go-login">
+                    没有账号?
+                    <a href="/register/">立即注册</a>
+                </div>
+                <button type="submit" class="register-btn">登陆</button>
+            </div>
+        </form>
+       </div>
+    </div>
+    <!-- 尾部-->
+    <div class="footer">
+        <ul class="foot-nav">
+            <li><a>健康纪元</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">用户协议</a></li>
+            <li><a href="#">隐私政策</a></li>
+            <li><a href="#">社区准则</a></li>
+            <li><a href="#">版权政策</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

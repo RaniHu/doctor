@@ -1,0 +1,1 @@
+from commonDatas.models import Bingli

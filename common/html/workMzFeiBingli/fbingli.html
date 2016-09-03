@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/workMzBingli/common.css">
+    <link rel="stylesheet" href="/static/css/workMzBingli/style.css">
+    <script src="/static/js/workMzBingli/jquery-1.9.1.js"></script>
+    <script src="/static/js/workMzBingli/event.js"></script>
+    <title>健康纪元</title>
+</head>
+<body>
+<div class="wrapper">
+        <!-- 头部-->
+        <div class="header">
+            <!-- 顶部导航-->
+            <div class="top-nav">
+                <p class="logo float_l" >健康纪元</p>
+                <!-- 顶部主导航-->
+                <ul class="main-nav float_l">
+                    <li class="main-nav-li">
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="main-nav-li">
+                        <a href="fbingli">我的工作</a>
+                        <ul class="sub-nav">
+                            <li><a href="/bingli/">门诊服务</a></li>
+                            <li><a href="/completed/">上门服务</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav-li">
+                        <a href="#">发现</a>
+                        <ul class="sub-nav">
+                            <li><a href="#">医疗服务</a></li>
+                            <li><a href="#">行业洞察</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav-li">
+                        <a href="#">人脉</a>
+                        <ul class="sub-nav">
+                            <li><a href="#">关注</a></li>
+                            <li><a href="#">添加关注人</a></li>
+                            <li><a href="#">寻找同行</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav-li">
+                        <a href="#">个人资料</a>
+                        <ul class="sub-nav">
+                            <li><a href="#">编辑资料</a></li>
+                            <li><a href="#">谁看过我</a></li>
+                            <li><a href="#">我的动态</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- 搜索框-->
+                <form class="search float_l">
+                    <input type="text" class="search-txt float_l">
+                    <input type="button" class="search-btn float_l">
+                </form>
+                <!-- 用户信息-->
+                <ul class="user-info float_l">
+                    <li class="work-mes">
+                        <a href="#"></a>
+                    </li>
+                    <li class="social-static">
+                        <a href="#"></a>
+                    </li>
+                    <li class="user-icon">
+                        <a href="#"><img src="/static/image/workMzBingli/user-icon.JPG"></a>
+                    </li>
+                </ul>
+            </div>
+             <!--用户位置-->
+            <div class="user-position">
+                <ul class="nav-bar">
+                    <li><a href="#">您的位置 ></a></li>
+                    <li><a href="#">我的工作 ></a></li>
+                    <li class="on"><a href="#">门诊服务 </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 主要内容-->
+        <div class="main">
+            <div class="content-wrapper">
+                <div class="main-content">
+                    <!-- 病历类菜单-->
+                    <div class="main-menu">
+                        <ul class="float_l">
+                            <li><a href="#">基本资料</a></li>
+                            <li><a href="/bingli/">病历类</a></li>
+                            <li class="on"><a href="#">非病历类</a></li>
+                        </ul>
+                        <input type="button" value="开始填写病历" class="writeBl float_l">
+                    </div>
+                    <!-- 具体详情-->
+                    <div class="detail-info">
+                        <!-- 基本资料详情-->
+                        <div class="basic-info">
+                            
+                        </div>
+                        <!-- 病历详情-->
+                        <div class="bingli">
+
+                         </div>
+                    <!-- 非病历详情-->
+                    <div class="fbingli">
+                        {% for a in Feibingli_list %}
+                            <div class="bl-box">
+                                <div class="bl-info">
+                                    <ul>
+                                        <li class="cure-result">
+                                            <label class="float_l">初步诊断 :</label><span class="float_l pre-cure">{{a.improved}}</span>
+                                            <span class="cure-time">2016-5-7  21:30</span>
+                                        </li>
+                                        <li>
+                                            <label class="float_l">就诊医生 :</label><span class="placeholder float_l">{{a.unimproved }}</span>
+                                            <label class="float_l">就诊医院 :</label><span class="placeholder right float_l">{{a.hospital}}</span>
+                                            <span class="private">公开</span>
+                                        </li>
+                                        <li>
+                                            <label class="float_l">就诊科室 :</label><span class="placeholder float_l">{{a.ordernumberid}}</span>
+                                            <label class="float_l">治疗意见 :</label><span class="placeholder right float_l">{{a.writenote }}</span>
+                                            <a href="#" class="see-detail">查看详情</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>  
+                            {%endfor%}
+                         
+                                <!-- 如果当前是第一页，就不显示【上一页】链接 -->  
+                           <div id="pagination">
+    					       <ul id="pagination-flickr">
+      							  {% ifnotequal curPage 1 %}  
+           					       <li class="page-btn">
+           					           <a href="?curPage={{ curPage }}&&allPage={{ allPage }}&&pageType=pageUp">上一页  </a>
+           					       </li>  
+         						 {% else %}
+        						   <li class="page-off">下一页</li>
+       							 {% endifnotequal %}   
+  
+       							 
+       							   <form action="/bingli/"  method="post" class="pageNum float_l" onsubmit="return checkGoBtn()">
+       							   	   <span class="nowPage">第{{ curPage }}/{{ allPage }}页   </span>
+       							   	   <input type="hidden" id="hideAll" value="">
+       							       <span class="goPage float_l">到第<input type="text" name="goPage" class="goPage">页</span>
+       							       <button type="submit" class=" go-btn float_l">Go</button > 
+       							       
+       							   </form>
+  
+        						 <!--如 果当前是最后一页，就不显示【下一页】链接  -->
+     							   {% ifnotequal curPage allPage %}  
+           						   <li class="page-btn">
+           						       <a href="?curPage={{ curPage }}&&allPage={{ allPage }}&&pageType=pageDown">下一页  </a>
+           						   </li>  
+     						       {% else %}
+        						   <li class="page-off">下一页</li>
+     							   {% endifnotequal %}     
+ 							     </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 尾部-->
+    <div class="footer">
+
+    </div>
+</div>
+
+</body>
+</html>    
+                                  

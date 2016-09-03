@@ -1,0 +1,437 @@
+@charset "utf-8";
+*{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    min-width:1280px ;
+    margin: 0 auto;
+    background-color: #eeeeee;
+    font-family:'microsoft Yahei';
+}
+
+/*头部*/
+.header{
+    width: 100%;
+    height: 90px;
+    position: relative;
+}
+
+
+/*顶部导航*/
+.header .top-nav{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background:#3A3A3A;
+}
+.header .top-nav .logo{
+    font-size: 28px;
+    font-family: logo-fontFamily;
+    color: #ffffff;
+    margin-left: 100px;
+    margin-right: 30px;
+
+}
+@font-face {
+    font-family: logo-fontFamily;
+    src: url('/static/image/workMzBingli/logo.TTF');
+
+}
+/*顶部主导航*/
+.header .main-nav{
+    width: 380px;
+    margin: 0 auto;
+    font-size: 0;       /*解决inline-block有间隙*/
+}
+.header .main-nav >li{
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    font-size: 14px;
+    transition: 0.5s;
+}
+
+.header .main-nav li a{
+    display: block;
+    color: #ffffff;
+    padding: 0 15px;
+}
+.header .top-nav ul li:hover{
+    background-color: #090909;
+}
+.header .main-nav li .main-nav-on{
+    background-color: #090909;
+
+}
+
+/*主导航下的子导航*/
+.header .main-nav .sub-nav{
+    position: absolute;
+    width: 120px;
+    top:50px;
+    left: 0;
+    clear: both;
+    text-align: left;
+    display: none;
+    z-index: 3;
+}
+.main-nav .sub-nav li{
+    background-color: #090909;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.main-nav .sub-nav li a{
+    color: #cdcdcd;
+}
+.main-nav .sub-nav li a:hover{
+    color: #ffffff;
+}
+
+
+/*.user-detail{
+    z-index: 3;
+    position: absolute;
+    top:50px;
+    width: 120px;
+    height: 150px;
+    left: 0;
+    color: red;
+    background-color: #090909;
+}*/
+
+/*鼠标滑过显示当前菜单下的字菜单*/
+/*
+.main-nav li:hover .sub-nav{
+    display: block;
+}
+*/
+
+/*搜索框*/
+.header .search{
+    width:250px ;
+    margin-top: 12px;
+    margin-left: 100px;
+}
+.header .search .search-txt{
+    width: 200px;
+    height: 25px;
+    border: 1px solid #090909;
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
+.header .search .search-btn{
+    width: 30px;
+    height: 30px;
+    background: url("/static/image/workMzBingli/search.png") no-repeat;
+    background-size: 65%;
+    border: none;
+    margin-left: 5px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+
+/*用户信息*/
+.header .user-info{
+    font-size: 0;
+    width: 200px;
+    height: 50px;
+    margin-left: 100px;
+}
+.header .user-info>li{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+
+
+}
+.header .user-info li a{
+    display: block;
+    height: 50px;
+
+}
+/*工作消息*/
+.user-info .work-mes>a{
+    background: url("/static/image/workMzBingli/mes2.png") no-repeat center;
+}
+.user-info .work-mes>a:hover{
+    background:url("/static/image/workMzBingli/mes.png") no-repeat center;
+}
+/*社交动态*/
+.user-info .social-static>a{
+    background: url("/static/image/workMzBingli/action2.png") no-repeat center;
+}
+.user-info .social-static>a:hover{
+    background: url("/static/image/workMzBingli/action.png") no-repeat center;
+}
+/*用户头像*/
+.user-info .user-icon img{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    display: block;
+    border-radius:50%;
+    top:50%;
+    margin-top: -16px;
+    left: 50%;
+    margin-left: -16px;
+}
+
+
+/*用户位置*/
+.user-position{
+    position: absolute;
+    top:50px;
+    width: 100%;
+    height: 40px;
+    background:#ffffff;
+    border-bottom: 1px solid #cdcdcd;
+}
+.user-position .nav-bar{
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 162px;
+    font-size: 0;
+
+}
+.user-position .nav-bar li{
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 14px;
+}
+.user-position .nav-bar .on a{
+    color: #2582CC;
+}
+.user-position .nav-bar li a{
+    color: #333333;
+
+
+}
+
+
+/*中间主要内容*/
+.main{
+    width: 100%;
+    height: 800px;
+}
+.main .content-wrapper{
+    margin-top: 35px;
+}
+.main .main-content{
+    width: 75%;
+    height: 770px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+}
+/*病历类菜单栏*/
+.main-content .main-menu{
+    width: 100%;
+    height: 45px;
+    border-bottom:1px solid #e0e0e0  ;
+}
+.main-content .main-menu ul{
+    margin-left: 30px;
+    font-size: 0;
+}
+.main-content .main-menu ul li{
+    display: inline-block;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+}
+.main-content .main-menu ul .on {
+    border-bottom: 3px solid #256FB9;
+}
+.main-content .main-menu ul li a{
+    display: block;
+    color: #333333;
+    padding: 0 12px;
+}
+.main-menu .writeBl{
+    float: right;
+    width: 100px;
+    height: 28px;
+    margin-right: 25px;
+    margin-top: 8px;
+    color: #256FB9;
+    background-color: #ffffff;
+    border: 1px solid #256FB9;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.main-menu .writeBl:hover{
+    color: #ffffff;
+    background-color: #256FB9;
+}
+
+/*具体详情*/
+.main-content .detail-info{
+    position: relative;
+}
+/* .main-content .detail-info > div{
+    position: absolute;
+    top:0;
+    left: 0;
+    display: none; 
+} */
+.bingli{
+    width: 100%;
+}
+/*病历类*/
+.detail-info .bl-box{
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.detail-info .bl-box .bl-info{
+    width: 845px;
+    height: 150px;
+    background-color: #eeeeee;
+    margin-left: 40px;
+    margin-top: 28px;
+}
+.bl-box .bl-info ul{
+    margin-left: 30px;
+}
+.bl-box .bl-info ul li{
+    height: 50px;
+    line-height: 50px;
+}
+.bl-box .bl-info ul li span{
+    text-overflow: ellipsis;            /*超出部分用省略号表示*/
+    white-space: nowrap;                /*强制不换行*/
+    overflow: hidden;
+}
+/*初步诊断*/
+.bl-info .cure-result{
+    font-size: 18px;
+    font-weight: bold;
+    color: #9E0000;
+}
+.bl-info .cure-result .pre-cure{
+    width: 400px;
+
+}
+.bl-info .cure-result label{
+    margin-right: 5px;
+}
+/*治疗时间*/
+.bl-info .cure-time{
+    float: right;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+}
+/*隐私详情*/
+.bl-info .private{
+    float: right;
+    margin-right: 20px;
+}
+/*查看详情*/
+.bl-info .see-detail{
+    float: right;
+    margin-right: 20px;
+    color: #2582CC;
+}
+/*翻页按钮*/
+#pagination{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-top:20px;
+}
+#pagination ul{
+    width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+#pagination ul li{
+    display: block;
+    float:left;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+
+
+}
+
+/*前一页后一页按钮*/
+#pagination ul .page-btn a {
+    display: block;
+    /*margin: 20px auto;*/
+    text-align: center;
+    border: 1px solid #2582CC;
+    color: #256FB9;
+}
+
+#pagination ul .page-btn a:hover {
+    background-color: #295BAB;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+/*前一页后一页按钮不可点击*/
+#pagination ul .page-off {
+    color: #727272;
+    border: 1px solid #9F9F9F;
+}
+
+/*具体跳转页数*/
+#pagination .pageNum{
+	width:225px;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	margin-left:18px;
+	
+}
+
+#pagination .pageNum  .goPage{
+	margin:0 8px;
+}
+#pagination .pageNum  .goPage input{
+	width:30px;
+	height:20px;
+	margin:0 3px;
+
+}
+#pagination .pageNum  .go-btn {
+	width:35px;
+	height:25px;
+	background:#295BAB;
+	color:#ffffff;
+	border:1px solid #295BAB;
+	margin-top:5px;
+	cursor:pointer;
+	
+}
+
+
+/*需要调取数据的地方*/
+.bl-info ul li .placeholder{
+    display: inline-block;
+    width: 110px;
+    margin-left: 5px;
+}
+.bl-info ul li .right {
+    width: 440px;
+
+}
+
+
+/*尾部*/
+.footer{
+    width: 100%;
+    height: 100px;
+    background-color:#3F3F3F;
+}

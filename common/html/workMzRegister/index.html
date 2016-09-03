@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/workMzRegister/common.css"">
+    <link rel="stylesheet" href="/static/css/workMzRegister/style.css">
+    <link rel="stylesheet" href="/static/css/workMzRegister/register.css">
+    <script src="static/js/workMzRegister/jquery-1.9.1.js"></script>
+    <script src="static/js/workMzRegister/event.js"></script>
+    <title>健康纪元</title>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 头部-->
+        <div class="header">
+            <!-- 顶部导航-->
+            <div class="top-nav">
+                <p class="logo float_l" >健康纪元</p>
+                <!-- 顶部主导航-->
+                <ul class="main-nav float_l">
+                    <li><a href="#">首页</a></li>
+                    <li class="main-nav-li">
+                        <a href="#">我的工作</a>
+                        <ul class="sub-nav">
+                            <li><a href="#">门诊服务</a></li>
+                            <li><a href="#">上门服务</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav-li">
+                        <a href="#">发现</a>
+                        <ul class="sub-nav">
+                            <li><a href="#">医疗服务</a></li>
+                            <li><a href="#">行业洞察</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav-li">
+                        <a href="#">人脉</a>
+                        <ul class="sub-nav">
+                            <li><a href="#">关注</a></li>
+                            <li><a href="#">添加关注人</a></li>
+                            <li><a href="#">寻找同行</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav-li">
+                        <a href="#">个人资料</a>
+                        <ul class="sub-nav">
+                            <li><a href="#">编辑资料</a></li>
+                            <li><a href="#">谁看过我</a></li>
+                            <li><a href="#">我的动态</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- 搜索框-->
+                <form class="search float_l">
+                    <input type="text" class="search-txt float_l">
+                    <input type="button" class="search-btn float_l">
+                </form>
+                <!-- 用户信息-->
+                <ul class="user-info float_l">
+                    <li class="work-mes">
+                        <a href="#"></a>
+                    </li>
+                    <li class="social-static">
+                        <a href="#"></a>
+                    </li>
+                    <li class="user-icon">
+                        <a href="#"><img src="/static/image/workMzRecord/user-icon.JPG"></a>
+                    </li>
+                     <li class="login-out">
+                       <a href="/loginout/">退出当前用户</a>
+                    </li>
+                </ul>
+            </div>
+             <!--用户位置-->
+            <div class="user-position">
+                <ul class="nav-bar">
+                    <li><a href="#">您的位置 ></a></li>
+                    <li class="on"><a href="#">我的工作 ></a></li>
+                    <li ><a href="#">上门服务 </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 主要内容-->
+        <div class="main">
+            <div class="content-wrapper">
+                <div class="main-content">
+恭喜{{bb.username}},登录成功！
+                    <h1><a href="/record/" target="_self">我的诊疗记录</a></h1>
+                     <p>亲，开始工作了，请打起精神来好好加油哦！</p>
+
+                           <form  name="form1" method="post" action="/workinfo/">
+                             <input type="text"  name="guahaodan" placeholder="请输入患者挂号单">
+                                <!--<a href="/workinfo/"><input type="button" value="确定"></a> -->
+                             <button type="submit" >确定</button>
+                           </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- 尾部-->
+        <div class="footer">
+
+        </div>
+    </div>
+
+</body>
+</html>

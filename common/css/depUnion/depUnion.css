@@ -1,0 +1,233 @@
+/*主要内容*/
+.middle {
+    position: relative;
+    margin: 20px auto;
+}
+
+.main-contents {
+    width: 71%;
+    /*height: 950px;*/
+    margin: 0 auto;
+}
+
+/*左侧主内容*/
+.main-contents .left-content {
+    width: 700px;
+    /*height: 950px;*/
+}
+
+/*发布工作情况*/
+.left-content .pub-work {
+    height: 180px;
+}
+
+.pub-work .title {
+    color: #FF0033;
+    font-size: 16px;
+    font-family: titleFamily;
+    margin: 10px 0px 5px 25px;
+}
+
+.left-content .pub-work .pub-work-area {
+    width: 650px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*发布工作文本域*/
+.pub-work .work-txt {
+    width: 640px;
+    height: 90px;
+    outline: #FF524B;
+    text-align: left;
+    font-size: 14px;
+    padding: 5px;
+}
+
+/*添加表情/图片*/
+.pub-work .add-image {
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
+.pub-work .add-image img {
+    padding: 0 4px;
+}
+
+.pub-work .add-image .uploadInput{
+    display: none;
+}
+
+/*发布按钮*/
+.pub-work .pub-btn {
+    float: right;
+    width: 85px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 8px;
+}
+
+/*选择权限*/
+.pub-work .selectPrivate {
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+/*其他人的工作情况*/
+.left-content .other-work {
+    margin-top: 10px;
+
+}
+
+/*其他人工作动态盒子*/
+.other-work .other-work-box {
+    width: 100%;
+    margin: 10px auto;
+
+    /*height: 180px;*/
+
+}
+
+/*工作动态上半部分内容*/
+.other-work-box .work-mes-content {
+    width: 100%;
+    border-bottom: 1px solid #E7E7E7;
+    /*overflow: auto;*/
+
+}
+.comment-input{
+    /*display: none;*/
+}
+
+/*用户头像*/
+.other-work-box .user-img {
+    width: 80px;
+    text-align: right;
+    margin-top: 20px;
+    padding-right: 10px;
+
+}
+
+.other-work-box .user-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/*工作动态文字内容*/
+.other-work-box .work-mes-main {
+    margin-top: 20px;
+    width: 610px;
+    padding-bottom: 10px;
+
+}
+
+.other-work-box .work-mes-main li {
+    margin: 3px auto;
+}
+
+.other-work-box .work-mes-main li a {
+    color: #3A3A3A;
+}
+
+/*用户名*/
+.other-work-box .work-mes-main .username {
+    font-weight: bold;
+}
+
+/*发布时间*/
+.other-work-box .work-mes-main .pub-time a {
+    color: #9F9F9F;
+    font-size: 13px;
+}
+
+/*评论点赞*/
+.other-work-box .work-mes-comment {
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+
+}
+
+.other-work-box .work-mes-comment ul {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.other-work-box .work-mes-comment ul li {
+    display: inline-block;
+    padding: 8px 0;
+}
+
+.work-mes-comment ul li a {
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 103px;
+    font-size: 13px;
+    color: #6F6F6F;
+}
+
+.work-mes-comment ul li a:hover {
+    color: #FF524B;
+}
+
+.work-mes-comment ul li .r-border {
+    border-right: 1px solid #e0e0e0;
+}
+
+/*评论输入框*/
+.other-work-box .comment-input {
+    height: 100px;
+}
+
+.other-work-box .comment-input input {
+    display: block;
+    width: 580px;
+    height: 25px;
+    margin: 20px 0 10px 90px;
+
+}
+
+.other-work-box .comment-input button {
+    float: right;
+    width: 60px;
+    height: 28px;
+    font-size: 12px;
+    margin-right: 25px;
+}
+
+.comment-input .img-icon {
+    cursor: pointer;
+    margin-left: 90px;
+}
+
+/*侧边栏*/
+.main-contents .sidebar {
+    width: 245px;
+    height: 950px;
+    margin-left: 10px;
+}
+
+/*用户信息*/
+.sidebar .user-data {
+    height: 180px;
+    text-align: center;
+}
+
+.sidebar .user-data ul {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.sidebar .user-data .user-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.sidebar .union-member {
+    height: 596px;
+    margin-top: 10px;
+}

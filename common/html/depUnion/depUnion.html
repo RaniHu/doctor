@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/workMzBingli/common.css">
+    <link rel="stylesheet" href="/static/css/workMzBingli/style.css">
+    <link rel="stylesheet" href="/static/css/depUnion/depUnion.css">
+    <script src="/static/js/workMzBingli/jquery-1.9.1.js"></script>
+    <script src="/static/js/workMzBingli/event.js"></script>
+    <title>健康纪元-科室工会</title>
+</head>
+<body>
+<script>
+    $(function () {
+        $(".comment-btn").click(function () {
+            var data = $(".com-input").val();
+            $.post('/comment/', {'commenttext': data}, function (ret) {
+                $(".show-name").text(ret);
+                $(".show-content").text(data);
+                $(".com-input").val("");
+            })
+        })
+    }) ;
+    $(function () {
+        $(".pub-btn").click(function () {
+            var data = $(".work-txt").val();
+            $.post('/pubContent/', {'workTxt': data})
+        })
+    })
+
+</script>
+<div class="wrapper">
+    <!--恭喜{{bb.username}},登录成功！-->
+
+    <!-- 头部-->
+    <div class="header">
+        <!-- 顶部导航-->
+        <div class="top-nav">
+            <p class="logo float_l" >健康纪元</p>
+            <!-- 顶部主导航-->
+            <ul class="main-nav float_l">
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li class="main-nav-li">
+                    <a href="mz.html">我的工作</a>
+                    <ul class="sub-nav">
+                        <li><a href="#">门诊服务</a></li>
+                        <li><a href="#">上门服务</a></li>
+                    </ul>
+                </li>
+                <li class="main-nav-li">
+                    <a href="#">发现</a>
+                    <ul class="sub-nav">
+                        <li><a href="#">医疗服务</a></li>
+                        <li><a href="#">行业洞察</a></li>
+                    </ul>
+                </li>
+                <li class="main-nav-li">
+                    <a href="#">人脉</a>
+                    <ul class="sub-nav">
+                        <li><a href="#">关注</a></li>
+                        <li><a href="#">添加关注人</a></li>
+                        <li><a href="#">寻找同行</a></li>
+                    </ul>
+                </li>
+                <li class="main-nav-li">
+                    <a href="#">个人资料</a>
+                    <ul class="sub-nav">
+                        <li><a href="#">编辑资料</a></li>
+                        <li><a href="#">谁看过我</a></li>
+                        <li><a href="#">我的动态</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- 搜索框-->
+            <form class="search float_l">
+                <input type="text" class="search-txt float_l">
+                <input type="button" class="search-btn float_l">
+            </form>
+            <!-- 用户信息-->
+            <ul class="user-info float_l main-nav">
+                <li class="work-mes main-nav-li">
+                    <a href="#"></a>
+                    <ul class="user-detail sub-nav">
+                        <li>
+                            <a href="#">我是胡冉</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="social-static main-nav-li">
+                    <a href="#"></a>
+                    <ul class="user-detail sub-nav">
+                        <li>
+                            <a href="#">我是胡冉</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="user-icon main-nav-li">
+                    <a href="#"><img src="/static/image/workMzBingli/user-icon.JPG"></a>
+                    <ul class="user-detail sub-nav">
+                        <li>
+                            <a href="#">我是胡冉</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--用户位置-->
+        <div class="user-position">
+            <ul class="nav-bar">
+                <li><a href="#">您的位置 ></a></li>
+                <li><a href="#">我的工作 ></a></li>
+                <li class="on"><a href="#">科室工会</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主要内容-->
+    <div class="middle">
+        <div class="content-wrapper">
+            <div class="main-contents">
+                <!-- 左边主内容-->
+                <div class="left-content float_l">
+                    <!-- 发布工作情况-->
+                    <div class="pub-work bgWhite">
+                        <p class="title">有什么工作情报想要发布?</p>
+                        <!--发布按钮-->
+                        <form action="/pubContent/" enctype="multipart/form-data"  method="post" name="uploadImg">
+                            <div class="pub-work-area">
+                                <!--文本框开始结束符不能有空格-->
+                                <textarea class="work-txt myTextArea" title="发布工作文本框" name="workTxt"></textarea>
+                            </div>
+                            <!--添加表情/图片-->
+                            <div class="add-image float_l">
+                                <input type="file" name="uploadInput" class="uploadInput">
+                                <img src="/static/image/depUnion/pub-face.png">
+                                <img src="/static/image/depUnion/pub-image.png" class="uploadBtn">
+                            </div>
+                            <!--选择权限-->
+                            <select name="selectPrivate" class="selectPrivate">
+                                <option value="0">公开</option>
+                                <option value="1">工会圈可见</option>
+                            </select>
+                            <span>遍历结果</span>
+                            <button type="submit" class="pubBtn pub-btn">发布</button>
+                            
+                        </form>
+                    </div>
+
+                    <!-- 其他人的工作动态-->
+                    <div class="other-work ">
+                        <!--工作动态盒子-->
+                        {% for a in detail_list reversed %}
+                        <div class="other-work-box bgWhite">
+                            <!--文字内容-->
+                            <div class="work-mes-content">
+                                <div class="user-img float_l">
+                                    <a href="#"><img src="/static/image/depUnion//user-icon.JPG"></a>
+                                </div>
+                                <ul class="work-mes-main float_l">
+                                    <li class="username"><a href="#">
+                                        {{ bb.username }}
+                                    </a></li>
+                                    <li class="pub-time"><a>今天14:26</a></li>
+                                    <li class="pub-content">
+                                        <a>{{a.contenttext}}</a>
+                                        <div>
+                                            <img src="{{ b.get_thumbnail_url }}">
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearFix"></div>
+                            </div>
+
+                            <!--评论点赞-->
+                            <div class="work-mes-comment">
+                                <ul class="comment">
+                                    <li><a class="r-border">转发</a></li>
+                                    <li class="comment-btn"><a class="r-border">评论</a></li>
+                                    <li><a>赞</a></li>
+                                </ul>
+                            </div>
+                            <!--评论框-->
+                            <div class="comment-input">
+                                <!--提交评论表单-->
+
+                                <form action="/comment/" method="post" class="sub-comment">
+                                    <input type="text" name="commenttext" class="com-input">
+                                    <img src="/static/image/depUnion/pub-face.png" class="img-icon">
+                                    <button type="button" class="pubBtn comment-btn">评论</button>
+                                </form>
+                                <div class="show-com-box">
+                                    <div class="show-comment">
+                                        <label name="showName" class="show-name"></label>
+                                        <span name="showComment" class="show-content"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+                       {% comment %} <!-- 如果当前是第一页，就不显示【上一页】链接 -->
+                        <div id="pagination">
+                            <ul id="pagination-flickr">
+                                {% ifnotequal curPage 1 %}
+                                <li class="page-btn">
+                                    <a href="?curPage={{ curPage }}&&allPage={{ allPage }}&&pageType=pageUp">上一页 </a>
+                                </li>
+                                {% else %}
+                                <li class="page-off">下一页</li>
+                                {% endifnotequal %}
+
+
+                                <form action="/depUnion/" method="post" class="pageNum float_l"
+                                      onsubmit="return checkGoBtn()">
+                                    <span class="nowPage">第{{ curPage }}/{{ allPage }}页   </span>
+                                    <input type="hidden" id="hideAll" value="">
+                                    <span class="goPage float_l">到第<input type="text" name="goPage"
+                                                                          class="goPage">页</span>
+                                    <button type="submit" class=" go-btn float_l">Go</button>
+
+                                </form>
+
+                                <!--如 果当前是最后一页，就不显示【下一页】链接  -->
+                                {% ifnotequal curPage allPage %}
+                                <li class="page-btn">
+                                    <a href="?curPage={{ curPage }}&&allPage={{ allPage }}&&pageType=pageDown">下一页 </a>
+                                </li>
+                                {% else %}
+                                <li class="page-off">下一页</li>
+                                {% endifnotequal %}
+                            </ul>
+                        </div>{% endcomment %}
+                    </div>
+                </div>
+                <!-- 侧边栏-->
+                <div class="sidebar float_l">
+                    <!-- 用户信息-->
+                    <div class="user-data bgWhite">
+                        <ul>
+                            <li><img src="/static/image/depUnion//user-icon.JPG" class="user-icon"></li>
+                            <li class="user-name">王花花</li>
+                        </ul>
+                    </div>
+                    <!-- 工会成员-->
+                    <div class="union-member bgWhite">
+                        <input type="button" value="按钮" class="btn3">
+                    </div>
+                </div>
+                <div class="clearFix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 尾部-->
+    <div class="footer">
+
+    </div>
+</div>
+
+</body>
+</html>
